@@ -1,0 +1,49 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
+  <diagram name="Страница — 1" id="y3P5me7hsR_nuK5834CM">
+    <mxGraphModel dx="1626" dy="1193" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XghmZHSURcAjfM_Kjg03-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" edge="1" parent="1" source="XghmZHSURcAjfM_Kjg03-1" target="XghmZHSURcAjfM_Kjg03-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="XghmZHSURcAjfM_Kjg03-1" target="XghmZHSURcAjfM_Kjg03-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-1" value="class item&lt;div&gt;- int Quantity;&lt;/div&gt;&lt;div&gt;- int MaxQuantity;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" edge="1" parent="1" source="XghmZHSURcAjfM_Kjg03-4" target="XghmZHSURcAjfM_Kjg03-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-4" value="abstract class Usable&lt;div&gt;- abstract void Use();&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-8" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;class Consumable&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- override void Use();&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=10;" edge="1" parent="1" source="XghmZHSURcAjfM_Kjg03-10" target="XghmZHSURcAjfM_Kjg03-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XghmZHSURcAjfM_Kjg03-10" target="XghmZHSURcAjfM_Kjg03-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-10" value="&lt;font&gt;abstract class Equipable&lt;/font&gt;&lt;div&gt;&lt;font&gt;- int Durability;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;- int MaxDurability;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;- abstract void Equip();&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;- int MaxQuantity = 1;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="440" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-12" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;class Tool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- Tool ToolType;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- int ToolSpeed;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- void ToolUse;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="630" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-17" value="class Equipment&lt;div&gt;- Equipment EquipmentType;&lt;br&gt;&lt;div&gt;- int Insulation;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="630" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-21" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;class Tile&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- int x, int y;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- Snow SnowType;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- float SnowPercentage;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;- &lt;font style=&quot;font-size: 10px;&quot;&gt;Object TileObject;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- float HiddenPercentage;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XghmZHSURcAjfM_Kjg03-22" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;class Player&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- Inventory Inventory;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- int Health;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- int MaxHealth;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;int Stamina;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;int MaxStamina;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="-140" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
