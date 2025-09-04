@@ -1,5 +1,8 @@
 namespace snow.Item
 {
+    /// <summary>
+    /// hello
+    /// </summary>
     public class Usable : Item
     {
         public virtual void Use();
