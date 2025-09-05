@@ -1,11 +1,12 @@
-using System.Collections.Generic;
-namespace snow.Item
+namespace snow.Items
 {
+    using System.Collections.Generic;
+    using ItemTypes;
     public static class ItemList
     {
-        public static List<Item> List = new List<Item>
+        public static List<Item> List = new()
         {
-            new Item("White Snow", "The most basic snow known.", 100)
+            new("white_snow", 100)
         };
     }
 }
