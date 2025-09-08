@@ -1,4 +1,4 @@
-namespace snow.Items.ItemTypes
+namespace snow.Item.ItemTypes
 {
     public class Tool : Equipable
     {
@@ -6,10 +6,7 @@ namespace snow.Items.ItemTypes
         public ToolType ToolType { get; private set; }
         public int ToolSpeed { get; private set; }
         public ToolUse ToolUse { get; private set; }
-        public override Equip Equip()
-        {
-            throw new System.NotImplementedException();
-        }
+        public override Equip Equip() { return Equip(); }
         public Tool(int id) : base(id)
         {
             _refItem = GetRefItem<Tool>();

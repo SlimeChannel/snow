@@ -1,4 +1,4 @@
-namespace snow.Items
+namespace snow.Item
 {
     public enum ToolType
     {

@@ -1,4 +1,4 @@
-namespace snow.Items.ItemTypes
+namespace snow.Item.ItemTypes
 {
     public class Consumable : Usable
     {

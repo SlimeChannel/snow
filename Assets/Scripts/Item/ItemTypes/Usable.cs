@@ -1,6 +1,6 @@
-namespace snow.Items.ItemTypes
+namespace snow.Item.ItemTypes
 {
-    public class Usable : Item
+    public class Usable : BaseItem
     {
         private Usable _refItem;
         public Use Use { get; protected set; }

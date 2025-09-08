@@ -1,4 +1,4 @@
-namespace snow.Items
+namespace snow.Item
 {
     public delegate void Use();
     public delegate void ToolUse();

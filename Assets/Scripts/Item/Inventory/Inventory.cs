@@ -1,7 +1,6 @@
-using System.Collections.Generic;
-
-namespace snow.Items.Inventory
+namespace snow.Item.Inventory
 {
+    using System.Collections.Generic;
     public class Inventory
     {
         public List<Slot> Slots;

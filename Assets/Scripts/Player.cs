@@ -1,6 +1,6 @@
 namespace snow
 {
-    using Items.Inventory;
+    using Item.Inventory;
     using UnityEngine;
 
     public class Player : MonoBehaviour

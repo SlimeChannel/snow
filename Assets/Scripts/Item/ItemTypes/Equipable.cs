@@ -1,6 +1,6 @@
-namespace snow.Items.ItemTypes
+namespace snow.Item.ItemTypes
 {
-    public abstract class Equipable : Item
+    public abstract class Equipable : BaseItem
     {
         private Equipable _refItem;
         public int Durability { get; private set; }

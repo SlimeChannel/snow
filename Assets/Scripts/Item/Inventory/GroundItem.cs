@@ -1,4 +1,4 @@
-namespace snow.Items.Inventory
+namespace snow.Item.Inventory
 {
     using UnityEngine;
     public class GroundItem : MonoBehaviour

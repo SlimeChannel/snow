@@ -1,9 +1,9 @@
-namespace snow.Items.ItemTypes
+namespace snow.Item.ItemTypes
 {
-    public class Item
+    public class BaseItem
     {
-        private Item _refItem;
-        protected T GetRefItem<T>() where T : Item
+        private BaseItem _refItem;
+        protected T GetRefItem<T>() where T : BaseItem
         {
             return _refItem as T;
         }
@@ -11,14 +11,14 @@ namespace snow.Items.ItemTypes
         public string LangKey { get; private set; }
         public int MaxQuantity { get; private set; }
 
-        public Item(int id)
+        public BaseItem(int id)
         {
             _refItem = ItemList.List[id];
             ID = id;
             LangKey = _refItem.LangKey;
             MaxQuantity = _refItem.MaxQuantity;
         }
-        public Item(string langKey, int maxQuantity)
+        public BaseItem(string langKey, int maxQuantity)
         {
             LangKey = langKey;
             MaxQuantity = maxQuantity;
