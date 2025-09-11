@@ -5,7 +5,6 @@ namespace snow.Item.ItemTypes
         private Equipable _refItem;
         public int Durability { get; private set; }
         public int MaxDurability { get; private set; }
-        public abstract Equip Equip();
         protected Equipable(int id) : base(id)
         {
             _refItem = GetRefItem<Equipable>();

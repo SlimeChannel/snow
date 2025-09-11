@@ -4,12 +4,12 @@ namespace snow.Item.ItemTypes
     {
         public Consumable(int id) : base(id)
         {
-            base.Use += ReduceItem;
+            Use += _reduceItem;
         }
         public Consumable(string langKey, int maxQuantity, Use use) : base(langKey, maxQuantity, use)
         {
-            base.Use += ReduceItem;
+            Use += _reduceItem;
         }
-        private Use ReduceItem = () => { };
+        private readonly Use _reduceItem = () => { };
     }
 }

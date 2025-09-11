@@ -5,7 +5,7 @@ namespace snow.Item.ItemTypes
         private Equipment _refItem;
         public EquipmentType EquipmentType { get; private set; }
         public int Insulation { get; private set; }
-        public override Equip Equip() { return Equip(); }
+        public Equip Equip { get; private set; } = () => {};
         public Equipment(int id) : base(id)
         {
             _refItem = GetRefItem<Equipment>();

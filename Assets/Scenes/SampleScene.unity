@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b5d109bcd4b6e4bbfdf6a971ddce4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapScale: 101
+  _mapScale: 25
   _tile: {fileID: 2189649236033044899, guid: c9c4046dac228a442b9eb199cc2b4483, type: 3}
 --- !u!4 &456513016
 Transform:
