@@ -36,5 +36,11 @@ namespace snow.Tile
                     break;
             }
         }
+        public void SnowFall()
+        {
+            foreach (List<Tile> list in _tileList)
+                foreach (Tile tile in list)
+                    tile.ChangeSnowPercentage(0.2f);
+        }
     }
 }

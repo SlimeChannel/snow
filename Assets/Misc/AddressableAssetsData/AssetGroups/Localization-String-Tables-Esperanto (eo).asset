@@ -17,8 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: dec44b46318c58d418640c9eef6d1355
   m_SerializeEntries:
+  - m_GUID: 10e203194a96083499461419c8c4df73
+    m_Address: Item Descriptions_eo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-eo
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3aaa99627a68cf498a63cc37cbcc98e
     m_Address: Item Names_eo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-eo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e430f467669257b4aa99f0721bcf854b
+    m_Address: GUI Text_eo
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-eo
