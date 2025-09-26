@@ -1,0 +1,13 @@
+Key,Id,English(en),Custom(eo),Russian(ru)
+"exit",390954213376,"Exit",,"Выход"
+"settings",1140348727873536,"Settings",,"Настройки"
+"join",1140413345320960,"Join Game",," Присоединиться к игре"
+"start",1140543175806976,"Start Game",,"Начать игру"
+"snow",1140623542865920,"SNOW","NEĜO","СНЕГ"
+"exit_confirmation",1140723694456832,"Are you sure you want to exit the game?",,"Вы точно хотите выйти из игры?"
+"yes",1140934231740416,"Yes",,"Да"
+"no",1140979446337536,"No",,"Нет"
+"graphics_settings",1141045972193280,"Graphics",,"Графика"
+"audio_settings",1141114481954816,"Audio",,"Аудио"
+"game_settings",1141208514056192,"Game",,"Игра"
+"controls_settings",1141374340059136,"Controls",,"Управление"

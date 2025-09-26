@@ -16,7 +16,51 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: c635ead006633504cb6dac6d891d84ed
   m_Entries:
   - m_Id: 390954213376
-    m_Key: 
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140348727873536
+    m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140413345320960
+    m_Key: join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140543175806976
+    m_Key: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140623542865920
+    m_Key: snow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140723694456832
+    m_Key: exit_confirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140934231740416
+    m_Key: yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140979446337536
+    m_Key: no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141045972193280
+    m_Key: graphics_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141114481954816
+    m_Key: audio_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141208514056192
+    m_Key: game_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141374340059136
+    m_Key: controls_settings
     m_Metadata:
       m_Items: []
   m_Metadata:
