@@ -11,6 +11,7 @@ namespace snow.UI
         [SerializeField] private Transform _settingsContainer;
         [SerializeField] private GameObject _defaultSelectable;
         [SerializeField] private RectTransform _settingsArrow;
+        [SerializeField] private List<Button> _settingsButtons;
         private Dictionary<string, int> _arrowPositions = new()
         {
             {"game", 50},
@@ -36,7 +37,7 @@ namespace snow.UI
                         EventSystem.current.SetSelectedGameObject(button.gameObject);
                         break;
                     }
-                    else if (result.gameObject.name == "Background")
+                    else if (result.gameObject.tag == "UI Background")
                         break;
                 }
             }
@@ -65,6 +66,15 @@ namespace snow.UI
                 child.SetActive(category == child.GetComponent<SettingsTab>().Tag);
             }
             _settingsArrow.anchoredPosition = new Vector2(_settingsArrow.anchoredPosition.x, _arrowPositions[category]);
+        }
+        public void ChangeSettingsNavigation(Button navigationPoint)
+        {
+            foreach (Button button in _settingsButtons)
+            {
+                Navigation nav = button.navigation;
+                nav.selectOnRight = navigationPoint;
+                button.navigation = nav;
+            }
         }
         public void SaveSettings()
         {

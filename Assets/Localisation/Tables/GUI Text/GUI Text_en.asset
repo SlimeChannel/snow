@@ -66,6 +66,30 @@ MonoBehaviour:
     m_Localized: Controls
     m_Metadata:
       m_Items: []
+  - m_Id: 2979721484193792
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2979776383438848
+    m_Localized: Fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2979860206604288
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2980190784868352
+    m_Localized: Master Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2980304635056128
+    m_Localized: Keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2980477272608768
+    m_Localized: Configurate...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
