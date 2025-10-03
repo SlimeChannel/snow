@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1140413345320960
-    m_Localized: Join Game
+    m_Localized: Join game
     m_Metadata:
       m_Items: []
   - m_Id: 1140543175806976
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1140623542865920
-    m_Localized: SNOW
+    m_Localized: Snow
     m_Metadata:
       m_Items: []
   - m_Id: 1140723694456832
@@ -88,6 +88,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2980477272608768
     m_Localized: Configurate...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3645032491405312
+    m_Localized: Refresh rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3682963339890688
+    m_Localized: Connect
     m_Metadata:
       m_Items: []
   references:

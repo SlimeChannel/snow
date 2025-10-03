@@ -16,6 +16,7 @@ namespace snow.UI
         [SerializeField] private string _localizationTable = "Settings";
         void Start()
         {
+            _valueIndex = SettingsManager.SettingsData[_type].IndexOf(SettingsManager.SettingsConfig[_type]);
             UpdateDisplay();
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
@@ -58,6 +59,9 @@ namespace snow.UI
                     break;
                 case "fullscreen":
                     await GetLocalizedSettingText(value);
+                    break;
+                case "refresh_rate":
+                    _text.text = value + " FPS";
                     break;
             }
         }
