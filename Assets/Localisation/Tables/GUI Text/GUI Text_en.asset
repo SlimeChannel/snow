@@ -98,6 +98,26 @@ MonoBehaviour:
     m_Localized: Connect
     m_Metadata:
       m_Items: []
+  - m_Id: 5379812966813696
+    m_Localized: 'Nickname:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5379889676439552
+    m_Localized: Your nickname here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380010703081472
+    m_Localized: 'Code:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380059218595840
+    m_Localized: Room code here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380158556491776
+    m_Localized: Connect
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -95,6 +95,26 @@ MonoBehaviour:
     m_Key: connect_button
     m_Metadata:
       m_Items: []
+  - m_Id: 5379812966813696
+    m_Key: nickname_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5379889676439552
+    m_Key: nickname_placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380010703081472
+    m_Key: code_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380059218595840
+    m_Key: code_placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380158556491776
+    m_Key: connect_butto
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
