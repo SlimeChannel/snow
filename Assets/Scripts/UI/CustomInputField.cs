@@ -47,12 +47,6 @@ namespace snow.UI
                     }
                 }
             }
-
-            // Если мышь над объектом - выбираем его
-            if (isMouseOver && !_wasMouseOver)
-            {
-                EventSystem.current.SetSelectedGameObject(gameObject);
-            }
             
             _wasMouseOver = isMouseOver;
 

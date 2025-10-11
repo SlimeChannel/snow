@@ -4,6 +4,7 @@ namespace snow.UI
     using UnityEngine.UI;
     using UnityEngine.EventSystems;
     using System.Collections.Generic;
+    using TMPro;
 
     public class MainMenuManager : MonoBehaviour
     {
@@ -32,9 +33,15 @@ namespace snow.UI
                 foreach (var result in results)
                 {
                     Button button = result.gameObject.GetComponentInParent<Button>();
+                    TMP_InputField inputField = result.gameObject.GetComponentInParent<TMP_InputField>();
                     if (button != null && button.interactable)
                     {
                         EventSystem.current.SetSelectedGameObject(button.gameObject);
+                        break;
+                    }
+                    else if (inputField != null)
+                    {
+                        EventSystem.current.SetSelectedGameObject(inputField.gameObject);
                         break;
                     }
                     else if (result.gameObject.tag == "UI Background")
