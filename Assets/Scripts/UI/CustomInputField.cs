@@ -1,40 +1,33 @@
 namespace snow.UI
 {
+    using System.Collections.Generic;
     using UnityEngine;
-    using TMPro;
     using UnityEngine.EventSystems;
-    using UnityEngine.UI;
+    using TMPro;
 
     public class CustomInputField : MonoBehaviour, IPointerClickHandler
     {
         private TMP_InputField _inputField;
         private Animator _animator;
-        
         private bool _isEditing = false;
-        private bool _wasMouseOver = false;
+        private bool _justStoppedEditing = false;
 
         private void Start()
         {
-            if (_animator == null)
-                _animator = GetComponent<Animator>();
-                
-            if (_inputField == null)
-                _inputField = GetComponent<TMP_InputField>();
-                
+            _animator = GetComponent<Animator>();
+            _inputField = GetComponent<TMP_InputField>();
             _inputField.interactable = false;
         }
 
         private void Update()
         {
             bool isMouseOver = false;
-            
             if (EventSystem.current != null)
             {
                 PointerEventData pointerData = new PointerEventData(EventSystem.current);
                 pointerData.position = Input.mousePosition;
-                var results = new System.Collections.Generic.List<RaycastResult>();
+                List<RaycastResult> results = new List<RaycastResult>();
                 EventSystem.current.RaycastAll(pointerData, results);
-
                 foreach (var result in results)
                 {
                     if (result.gameObject == gameObject)
@@ -44,25 +37,30 @@ namespace snow.UI
                     }
                 }
             }
-            _wasMouseOver = isMouseOver;
+
+            if (_isEditing)
+            {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Escape))
+                {
+                    StopEditing();
+                }
+                else if (Input.GetMouseButtonDown(0) && !isMouseOver)
+                {
+                    _inputField.enabled = false;
+                    StopEditing();
+                    _inputField.enabled = true;
+                }
+            }
+            else if (!_justStoppedEditing && IsSelected() && Input.GetButtonDown("Submit"))
+            {
+                StartEditing();
+            }
 
             UpdateAnimation();
 
-            if (_isEditing && (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Submit")))
+            if (_justStoppedEditing && (Input.anyKeyDown || Input.GetMouseButtonDown(0)))
             {
-                Debug.Log("1");
-                StopEditing();
-                EventSystem.current.SetSelectedGameObject(gameObject);
-            }
-            if (IsSelected() && !_isEditing && Input.GetButtonDown("Submit"))
-            {
-                Debug.Log("2");
-                StartEditing();
-            }
-            if (_isEditing && Input.GetMouseButtonDown(0) && !isMouseOver)
-            {
-                Debug.Log("3");
-                StopEditing();
+                _justStoppedEditing = false;
             }
         }
 
@@ -74,50 +72,39 @@ namespace snow.UI
         private void UpdateAnimation()
         {
             if (_animator == null) return;
-
-            if (_isEditing)
-            {
-                _animator.Play("Pressed");
-            }
-            else if (IsSelected())
-            {
-                _animator.Play("Selected");
-            }
-            else
-            {
-                _animator.Play("Normal");
-            }
+            _animator.Play(_isEditing ? "Pressed" : IsSelected() ? "Selected" : "Normal");
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!_isEditing)
-            {
-                StartEditing();
-            }
+            if (!_isEditing) StartEditing();
         }
 
         private void StartEditing()
         {
             _isEditing = true;
             _inputField.interactable = true;
+            _inputField.caretWidth = 1;
+            _inputField.selectionColor = new Color32(168, 206, 255, 255);
             _inputField.ActivateInputField();
             _inputField.caretPosition = _inputField.text.Length;
+            _justStoppedEditing = false;
         }
-
+        
         private void StopEditing()
         {
             _isEditing = false;
             _inputField.interactable = false;
+            _inputField.caretWidth = 0;
+            _inputField.selectionColor = Color.clear;
             _inputField.DeactivateInputField();
+            EventSystem.current.SetSelectedGameObject(gameObject);
+            _justStoppedEditing = true;
         }
 
-        public void OnEndEdit(string text)
+        public void OnEndEdit()
         {
-            if (_isEditing)
-            {
-                StopEditing();
-            }
+            if (_isEditing) StopEditing();
         }
     }
 }
