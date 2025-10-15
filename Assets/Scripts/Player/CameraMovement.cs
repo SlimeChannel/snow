@@ -1,10 +1,15 @@
 namespace snow.Player
 {
     using UnityEngine;
-    public class CameraMovement : MonoBehaviour
+    using Unity.Netcode;
+    public class CameraMovement : NetworkBehaviour
     {
         [SerializeField] private int _cameraLooseness = 20;
         [SerializeField] private Transform _target;
+        public override void OnNetworkSpawn()
+        {
+            if (!IsOwner) gameObject.SetActive(false);
+        }
         private void FixedUpdate()
         {
             Vector2 camPos = new(transform.position.x, transform.position.y);

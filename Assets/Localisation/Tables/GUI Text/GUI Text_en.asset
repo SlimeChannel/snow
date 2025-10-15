@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1140543175806976
-    m_Localized: Start Game
+    m_Localized: Start game
     m_Metadata:
       m_Items: []
   - m_Id: 1140623542865920
@@ -114,8 +114,8 @@ MonoBehaviour:
     m_Localized: Room code here
     m_Metadata:
       m_Items: []
-  - m_Id: 5380158556491776
-    m_Localized: Connect
+  - m_Id: 7968462292406272
+    m_Localized: Start
     m_Metadata:
       m_Items: []
   references:

@@ -5,6 +5,7 @@ namespace snow.UI
     using UnityEngine.EventSystems;
     using System.Collections.Generic;
     using TMPro;
+    using Unity.Netcode;
 
     public class MainMenuManager : MonoBehaviour
     {
@@ -90,6 +91,16 @@ namespace snow.UI
         public void DiscardSettings()
         {
 
+        }
+        public void ExecuteJoin()
+        {
+            Debug.Log("join");
+            NetworkManager.Singleton.StartClient();
+        }
+        public void ExecuteStart()
+        {
+            Debug.Log("start");
+            NetworkManager.Singleton.StartHost();
         }
     }
 }

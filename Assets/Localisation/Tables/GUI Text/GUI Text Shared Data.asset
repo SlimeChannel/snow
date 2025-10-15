@@ -92,7 +92,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3682963339890688
-    m_Key: connect_button
+    m_Key: connect_sub
     m_Metadata:
       m_Items: []
   - m_Id: 5379812966813696
@@ -111,8 +111,8 @@ MonoBehaviour:
     m_Key: code_placeholder
     m_Metadata:
       m_Items: []
-  - m_Id: 5380158556491776
-    m_Key: connect_butto
+  - m_Id: 7968462292406272
+    m_Key: start_sub
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -5,15 +5,15 @@ namespace snow.UI
     using UnityEngine.EventSystems;
     using UnityEngine.UI;
 
-    public class InputFieldNavigationOverride : MonoBehaviour, IPointerClickHandler
+    public class CustomInputField : MonoBehaviour, IPointerClickHandler
     {
-        [SerializeField] private TMP_InputField _inputField;
-        [SerializeField] private Animator _animator;
+        private TMP_InputField _inputField;
+        private Animator _animator;
         
         private bool _isEditing = false;
         private bool _wasMouseOver = false;
 
-        void Start()
+        private void Start()
         {
             if (_animator == null)
                 _animator = GetComponent<Animator>();
@@ -24,17 +24,14 @@ namespace snow.UI
             _inputField.interactable = false;
         }
 
-        void Update()
+        private void Update()
         {
-            // Проверяем наведение мыши в каждом кадре
             bool isMouseOver = false;
             
-            // Прямая проверка мыши в Update
             if (EventSystem.current != null)
             {
                 PointerEventData pointerData = new PointerEventData(EventSystem.current);
                 pointerData.position = Input.mousePosition;
-
                 var results = new System.Collections.Generic.List<RaycastResult>();
                 EventSystem.current.RaycastAll(pointerData, results);
 
@@ -47,27 +44,24 @@ namespace snow.UI
                     }
                 }
             }
-            
             _wasMouseOver = isMouseOver;
 
-            // Обновляем анимацию
             UpdateAnimation();
 
-            // Начало редактирования по Enter
+            if (_isEditing && (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Submit")))
+            {
+                Debug.Log("1");
+                StopEditing();
+                EventSystem.current.SetSelectedGameObject(gameObject);
+            }
             if (IsSelected() && !_isEditing && Input.GetButtonDown("Submit"))
             {
+                Debug.Log("2");
                 StartEditing();
             }
-            
-            // Выход из редактирования по Escape
-            if (_isEditing && Input.GetKeyDown(KeyCode.Escape))
-            {
-                StopEditing();
-            }
-            
-            // Выход из редактирования при клике вне InputField
             if (_isEditing && Input.GetMouseButtonDown(0) && !isMouseOver)
             {
+                Debug.Log("3");
                 StopEditing();
             }
         }
@@ -95,7 +89,6 @@ namespace snow.UI
             }
         }
 
-        // Клик мышкой - НАЧИНАЕМ РЕДАКТИРОВАНИЕ
         public void OnPointerClick(PointerEventData eventData)
         {
             if (!_isEditing)

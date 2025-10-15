@@ -2,8 +2,9 @@ namespace snow.Player
 {
     using Item.Inventory;
     using UnityEngine;
+    using Unity.Netcode;
 
-    public class Player : MonoBehaviour
+    public class Player : NetworkBehaviour
     {
         public Inventory Inventory { get; private set; }
         public int Health { get; private set; }
@@ -25,10 +26,12 @@ namespace snow.Player
         }
         void Update()
         {
+            if (!IsOwner) return;
             _movementVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         }
         void FixedUpdate()
         {
+            if (!IsOwner) return;
             _rb.velocity = _movementVector * BaseSpeed;
         }
     }
