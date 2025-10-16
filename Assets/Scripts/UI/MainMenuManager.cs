@@ -14,6 +14,10 @@ namespace snow.UI
         [SerializeField] private GameObject _defaultSelectable;
         [SerializeField] private RectTransform _settingsArrow;
         [SerializeField] private List<Button> _settingsButtons;
+        [SerializeField] private Button _discardButton;
+        [SerializeField] private Button _confirmButton;
+        
+        // Y coordinates of the settings arrow depending on the settings category
         private Dictionary<string, int> _arrowPositions = new()
         {
             {"game", 50},
@@ -21,14 +25,17 @@ namespace snow.UI
             {"audio", -150},
             {"controls", -250}
         };
+        
         private void Update()
         {
+            // Mouse navigation
             if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
             {
-                PointerEventData pointerData = new PointerEventData(EventSystem.current);
-                pointerData.position = Input.mousePosition;
-
-                System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
+                PointerEventData pointerData = new(EventSystem.current)
+                {
+                    position = Input.mousePosition
+                };
+                List<RaycastResult> results = new();
                 EventSystem.current.RaycastAll(pointerData, results);
 
                 foreach (var result in results)
@@ -49,54 +56,79 @@ namespace snow.UI
                         break;
                 }
             }
+            // Keyboard navigation
             if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
                 if (EventSystem.current.currentSelectedGameObject == null)
                     EventSystem.current.SetSelectedGameObject(_defaultSelectable);
         }
+        
+        // Play the animation of tab switch
         public void TabChange(string animationName)
         {
             _anim.Play(animationName);
         }
+        
+        // Reset UI selection on tab switch
         public void TabSelect(GameObject defaultSelectable)
         {
             EventSystem.current.SetSelectedGameObject(null);
             _defaultSelectable = defaultSelectable;
         }
+
         public void ExecuteExit()
         {
             Application.Quit();
         }
+
         public void SelectSettingsCategory(string category)
         {
+            // Deactivate all _settingsContainer children and reactivate the current category
             for (int i = 0; i < _settingsContainer.childCount; i++)
             {
                 GameObject child = _settingsContainer.GetChild(i).gameObject;
                 child.SetActive(category == child.GetComponent<SettingsTab>().Tag);
             }
+            // Change _settingsArrow position accordingly to the selected settings category
             _settingsArrow.anchoredPosition = new Vector2(_settingsArrow.anchoredPosition.x, _arrowPositions[category]);
         }
+
+        // Dynamic navigation change of buttons in the settings tabs
         public void ChangeSettingsNavigation(Button navigationPoint)
         {
+            Navigation nav = _discardButton.navigation;
+            nav.selectOnDown = navigationPoint;
+            _discardButton.navigation = nav;
+            nav = _confirmButton.navigation;
+            nav.selectOnDown = navigationPoint.FindSelectableOnRight() != null 
+                                ? navigationPoint.FindSelectableOnRight() 
+                                : navigationPoint;
+            _confirmButton.navigation = nav;
             foreach (Button button in _settingsButtons)
             {
-                Navigation nav = button.navigation;
+                nav = button.navigation;
                 nav.selectOnRight = navigationPoint;
                 button.navigation = nav;
             }
         }
+
         public void SaveSettings()
         {
-
+            // saving changed settings in playerprefs (UNIMPLEMENTED YET)
         }
+
         public void DiscardSettings()
         {
-
+            // discard settings and load previous from playerprefs (UNIMPLEMENTED YET)
         }
+
+        // Debug function for local testing as client
         public void ExecuteJoin()
         {
             Debug.Log("join");
             NetworkManager.Singleton.StartClient();
         }
+
+        // Debug function for local testing as host
         public void ExecuteStart()
         {
             Debug.Log("start");

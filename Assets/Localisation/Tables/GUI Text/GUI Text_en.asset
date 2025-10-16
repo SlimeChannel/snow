@@ -118,6 +118,10 @@ MonoBehaviour:
     m_Localized: Start
     m_Metadata:
       m_Items: []
+  - m_Id: 8462242258898944
+    m_Localized: Are you sure you want to discard all the changed settings?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

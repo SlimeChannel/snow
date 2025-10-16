@@ -115,6 +115,10 @@ MonoBehaviour:
     m_Key: start_sub
     m_Metadata:
       m_Items: []
+  - m_Id: 8462242258898944
+    m_Key: discard_confirmation
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

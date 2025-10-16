@@ -4,7 +4,7 @@ namespace snow.UI
     using UnityEngine;
     using UnityEngine.EventSystems;
     using TMPro;
-
+    
     public class CustomInputField : MonoBehaviour, IPointerClickHandler
     {
         private TMP_InputField _inputField;
@@ -29,21 +29,17 @@ namespace snow.UI
                 List<RaycastResult> results = new List<RaycastResult>();
                 EventSystem.current.RaycastAll(pointerData, results);
                 foreach (var result in results)
-                {
                     if (result.gameObject == gameObject)
                     {
                         isMouseOver = true;
                         break;
                     }
-                }
             }
 
             if (_isEditing)
             {
                 if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Escape))
-                {
                     StopEditing();
-                }
                 else if (Input.GetMouseButtonDown(0) && !isMouseOver)
                 {
                     _inputField.enabled = false;
@@ -52,16 +48,12 @@ namespace snow.UI
                 }
             }
             else if (!_justStoppedEditing && IsSelected() && Input.GetButtonDown("Submit"))
-            {
                 StartEditing();
-            }
 
             UpdateAnimation();
 
             if (_justStoppedEditing && (Input.anyKeyDown || Input.GetMouseButtonDown(0)))
-            {
                 _justStoppedEditing = false;
-            }
         }
 
         private bool IsSelected()

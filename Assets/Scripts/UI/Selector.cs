@@ -1,7 +1,6 @@
 namespace snow.UI
 {
     using UnityEngine;
-    using UnityEngine.UI;
     using UnityEngine.Localization;
     using UnityEngine.Localization.Settings;
     using TMPro;
@@ -16,9 +15,10 @@ namespace snow.UI
         [SerializeField] private string _localizationTable = "Settings";
         void Start()
         {
+            // Preload current settings values
             _valueIndex = SettingsManager.SettingsData[_type].IndexOf(SettingsManager.SettingsConfig[_type]);
             UpdateDisplay();
-            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+            if (_type == "language") LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
         void OnDestroy()
         {
@@ -45,9 +45,11 @@ namespace snow.UI
         }
         private async void UpdateDisplay()
         {
+            // Stop update if the data is invalid
             if (!SettingsManager.SettingsData.ContainsKey(_type) || _valueIndex >= SettingsManager.SettingsData[_type].Count)
                 return;
             string value = SettingsManager.SettingsData[_type][_valueIndex];
+            // Custom settings output depending on the setting type
             switch (_type)
             {
                 case "resolution":
@@ -65,6 +67,7 @@ namespace snow.UI
                     break;
             }
         }
+        // Fuction for getting translated version of the current setting
         private async Task GetLocalizedSettingText(string value)
         {
             try
@@ -79,6 +82,7 @@ namespace snow.UI
                 _text.text = value;
             }
         }
+        // Separate function specifically for language setting
         private string GetLocalizedLanguageName(string languageCode)
         {
             return languageCode switch
