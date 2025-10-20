@@ -9,14 +9,16 @@ namespace snow.UI
 
     public class MainMenuManager : MonoBehaviour
     {
+        public static MainMenuManager Singleton;
         [SerializeField] private Animator _anim;
         [SerializeField] private Transform _settingsContainer;
         [SerializeField] private GameObject _defaultSelectable;
         [SerializeField] private RectTransform _settingsArrow;
         [SerializeField] private List<Button> _settingsButtons;
+        [SerializeField] private List<Selector> _selectors;
         [SerializeField] private Button _discardButton;
         [SerializeField] private Button _confirmButton;
-        
+
         // Y coordinates of the settings arrow depending on the settings category
         private Dictionary<string, int> _arrowPositions = new()
         {
@@ -25,6 +27,12 @@ namespace snow.UI
             {"audio", -150},
             {"controls", -250}
         };
+        
+        private void Start()
+        {
+            if (Singleton == null) Singleton = this;
+            SettingsManager.Initialize();
+        }
         
         private void Update()
         {
@@ -114,11 +122,13 @@ namespace snow.UI
         public void SaveSettings()
         {
             // saving changed settings in playerprefs (UNIMPLEMENTED YET)
+            SettingsManager.SaveSettings();
         }
 
         public void DiscardSettings()
         {
             // discard settings and load previous from playerprefs (UNIMPLEMENTED YET)
+            SettingsManager.DiscardSettings();
         }
 
         // Debug function for local testing as client
@@ -133,6 +143,15 @@ namespace snow.UI
         {
             Debug.Log("start");
             NetworkManager.Singleton.StartHost();
+        }
+
+        public void SelectorUpdate(string type, int index)
+        {
+            Selector currentSelector = null;
+            foreach (Selector selector in _selectors)
+                if (selector._type == type)
+                    currentSelector = selector;
+            if (currentSelector != null) currentSelector.ChangeValue(index);
         }
     }
 }
