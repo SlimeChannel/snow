@@ -43,7 +43,6 @@ namespace snow.UI
         public static void Initialize()
         {
             _audioMixer = Resources.Load<AudioMixer>("Audio/MainAudioMixer");
-            if (_audioMixer != null) Debug.Log("ura");
             SettingsKeys = SettingsConfig.Keys.ToList();
             PrecacheLocales();
             // Automatically change settings to ones most appropriate to the user system

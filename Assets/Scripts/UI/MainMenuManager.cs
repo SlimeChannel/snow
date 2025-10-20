@@ -18,6 +18,8 @@ namespace snow.UI
         [SerializeField] private List<Selector> _selectors;
         [SerializeField] private Button _discardButton;
         [SerializeField] private Button _confirmButton;
+        public string Nickname;
+        public string Code;
 
         // Y coordinates of the settings arrow depending on the settings category
         private Dictionary<string, int> _arrowPositions = new()
@@ -134,15 +136,23 @@ namespace snow.UI
         // Debug function for local testing as client
         public void ExecuteJoin()
         {
-            Debug.Log("join");
             NetworkManager.Singleton.StartClient();
         }
 
         // Debug function for local testing as host
         public void ExecuteStart()
         {
-            Debug.Log("start");
             NetworkManager.Singleton.StartHost();
+        }
+
+        public void AssignNickname(string value)
+        {
+            Nickname = value;
+        }
+
+        public void AssignCode(string value)
+        {
+            Code = value;
         }
 
         public void SelectorUpdate(string type, int index)
