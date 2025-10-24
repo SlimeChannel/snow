@@ -17,7 +17,9 @@ namespace snow.UI
             { "fullscreen", new() { "Windowed", "ExclusiveFullScreen", "FullScreenWindow" } },
             { "resolution", new() { "1280x720", "1366x768", "1920x1080"  } },
             { "refresh_rate", new() { "30", "60", "120", "144", "160", "165", "170", "175", "180", "240", "360", "9999" } },
-            { "master_volume", new() { "0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" } }
+            { "master_volume", new() { "0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" } },
+            { "music_volume", new() { "0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" } },
+            { "sound_volume", new() { "0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%" } }
         };
 
         // Current states of all standart settings 
@@ -27,7 +29,9 @@ namespace snow.UI
             { "fullscreen", "FullScreenWindow" },
             { "resolution", "1920x1080" },
             { "refresh_rate", "60" },
-            { "master_volume", "50%" }
+            { "master_volume", "50%" },
+            { "music_volume", "100%" },
+            { "sound_volume", "100%" }
         };
 
         // All possible system languages (used for auto language detection)
@@ -132,7 +136,13 @@ namespace snow.UI
                     Application.targetFrameRate = int.Parse(value);
                     break;
                 case "master_volume":
-                    _audioMixer.SetFloat("MasterVolume", int.Parse(value.Split("%")[0]) - 80);
+                    _audioMixer.SetFloat("MasterVolume",  Mathf.Max(Mathf.Log10(int.Parse(value.Split("%")[0])/100f)*20, -80));
+                    break;
+                case "music_volume":
+                    _audioMixer.SetFloat("MusicVolume",  Mathf.Max(Mathf.Log10(int.Parse(value.Split("%")[0])/100f)*20, -80));
+                    break;
+                case "sound_volume":
+                    _audioMixer.SetFloat("SoundVolume",  Mathf.Max(Mathf.Log10(int.Parse(value.Split("%")[0])/100f)*20, -80));
                     break;
             }
         }

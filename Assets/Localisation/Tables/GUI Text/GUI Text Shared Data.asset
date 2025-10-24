@@ -83,6 +83,14 @@ MonoBehaviour:
     m_Key: master_volume_setting
     m_Metadata:
       m_Items: []
+  - m_Id: 11221146013290496
+    m_Key: music_volume_setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11222081078841344
+    m_Key: sound_volume_setting
+    m_Metadata:
+      m_Items: []
   - m_Id: 2980304635056128
     m_Key: keyboard_setting
     m_Metadata:

@@ -14,6 +14,21 @@ namespace snow.UI
         [SerializeField] private TextMeshProUGUI _text;
         [SerializeField] private string _localizationTable = "Settings";
 
+        public void Start()
+        {
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+        }
+
+        public void OnDestroy()
+        {
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+        }
+
+        public void OnLocaleChanged(Locale locale)
+        {
+            UpdateDisplay();
+        }
+
         public void ChangeValue(int index)
         {
             _valueIndex = index;
@@ -49,6 +64,8 @@ namespace snow.UI
             {
                 case "resolution":
                 case "master_volume":
+                case "music_volume":
+                case "sound_volume":
                     _text.text = value;
                     break;
                 case "language":

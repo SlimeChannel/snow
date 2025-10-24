@@ -79,7 +79,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2980190784868352
-    m_Localized: Master Volume
+    m_Localized: Master volume
     m_Metadata:
       m_Items: []
   - m_Id: 2980304635056128
@@ -120,6 +120,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 8462242258898944
     m_Localized: Are you sure you want to discard all the changed settings?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11221146013290496
+    m_Localized: Music volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11222081078841344
+    m_Localized: Sound volume
     m_Metadata:
       m_Items: []
   references:

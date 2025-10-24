@@ -18,6 +18,7 @@ namespace snow.UI
         [SerializeField] private List<Selector> _selectors;
         [SerializeField] private Button _discardButton;
         [SerializeField] private Button _confirmButton;
+        private AudioSource _soundSource;
         public string Nickname;
         public string Code;
 
@@ -32,8 +33,14 @@ namespace snow.UI
         
         private void Start()
         {
+            _soundSource = gameObject.transform.GetChild(1).GetComponent<AudioSource>();
+
             if (Singleton == null) Singleton = this;
+
             SettingsManager.Initialize();
+            
+            Button[] buttons = GameObject.FindObjectsOfType<Button>();
+            foreach (var b in buttons) b.onClick.AddListener( () => { MainMenuManager.Singleton._soundSource.PlayOneShot(Resources.Load<AudioClip>("Audio/Sound/click_sound")); } );
         }
         
         private void Update()
