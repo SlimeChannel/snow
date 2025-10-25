@@ -4,19 +4,27 @@ namespace snow.UI
     using UnityEngine;
     using UnityEngine.EventSystems;
     using TMPro;
-    
-    public class CustomInputField : MonoBehaviour, IPointerClickHandler
+    using System;
+
+    public class CustomInputField : MonoBehaviour, IPointerClickHandler, ISelectHandler
     {
         private TMP_InputField _inputField;
         private Animator _animator;
         private bool _isEditing = false;
         private bool _justStoppedEditing = false;
+        private event Action OnSelection;
 
         private void Start()
         {
             _animator = GetComponent<Animator>();
             _inputField = GetComponent<TMP_InputField>();
             _inputField.interactable = false;
+            OnSelection += MainMenuManager.Singleton.OnSelectUI;
+        }
+
+        private void OnDestroy()
+        {
+            OnSelection -= MainMenuManager.Singleton.OnSelectUI;
         }
 
         private void Update()
@@ -48,8 +56,9 @@ namespace snow.UI
                 }
             }
             else if (!_justStoppedEditing && IsSelected() && Input.GetButtonDown("Submit"))
+            {
                 StartEditing();
-
+            }
             UpdateAnimation();
 
             if (_justStoppedEditing && (Input.anyKeyDown || Input.GetMouseButtonDown(0)))
@@ -74,6 +83,7 @@ namespace snow.UI
 
         private void StartEditing()
         {
+            MainMenuManager.Singleton.OnClickUI();
             _isEditing = true;
             _inputField.interactable = true;
             _inputField.caretWidth = 1;
@@ -97,6 +107,11 @@ namespace snow.UI
         public void OnEndEdit()
         {
             if (_isEditing) StopEditing();
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            OnSelection?.Invoke();
         }
     }
 }

@@ -6,6 +6,7 @@ namespace snow.UI
     using System.Collections.Generic;
     using TMPro;
     using Unity.Netcode;
+    using Unity.VisualScripting;
 
     public class MainMenuManager : MonoBehaviour
     {
@@ -30,7 +31,7 @@ namespace snow.UI
             {"audio", -150},
             {"controls", -250}
         };
-        
+
         private void Start()
         {
             _soundSource = gameObject.transform.GetChild(1).GetComponent<AudioSource>();
@@ -38,11 +39,16 @@ namespace snow.UI
             if (Singleton == null) Singleton = this;
 
             SettingsManager.Initialize();
+
+            Button[] buttons = FindObjectsOfType<Button>();
+            foreach (var b in buttons)
+                b.AddComponent<CustomButton>();
             
-            Button[] buttons = GameObject.FindObjectsOfType<Button>();
-            foreach (var b in buttons) b.onClick.AddListener( () => { MainMenuManager.Singleton._soundSource.PlayOneShot(Resources.Load<AudioClip>("Audio/Sound/click_sound")); } );
+            TMP_InputField[] inputFields = FindObjectsOfType<TMP_InputField>();
+            foreach (var i in inputFields)
+                i.AddComponent<CustomInputField>();
         }
-        
+
         private void Update()
         {
             // Mouse navigation
@@ -78,13 +84,13 @@ namespace snow.UI
                 if (EventSystem.current.currentSelectedGameObject == null)
                     EventSystem.current.SetSelectedGameObject(_defaultSelectable);
         }
-        
+
         // Play the animation of tab switch
         public void TabChange(string animationName)
         {
             _anim.Play(animationName);
         }
-        
+
         // Reset UI selection on tab switch
         public void TabSelect(GameObject defaultSelectable)
         {
@@ -116,8 +122,8 @@ namespace snow.UI
             nav.selectOnDown = navigationPoint;
             _discardButton.navigation = nav;
             nav = _confirmButton.navigation;
-            nav.selectOnDown = navigationPoint.FindSelectableOnRight() != null 
-                                ? navigationPoint.FindSelectableOnRight() 
+            nav.selectOnDown = navigationPoint.FindSelectableOnRight() != null
+                                ? navigationPoint.FindSelectableOnRight()
                                 : navigationPoint;
             _confirmButton.navigation = nav;
             foreach (Button button in _settingsButtons)
@@ -169,6 +175,16 @@ namespace snow.UI
                 if (selector._type == type)
                     currentSelector = selector;
             if (currentSelector != null) currentSelector.ChangeValue(index);
+        }
+
+        public void OnSelectUI()
+        {
+            _soundSource.PlayOneShot(Resources.Load<AudioClip>("Audio/Sound/select_sound"));
+        }
+
+        public void OnClickUI()
+        {
+            _soundSource.PlayOneShot(Resources.Load<AudioClip>("Audio/Sound/click_sound"));
         }
     }
 }
