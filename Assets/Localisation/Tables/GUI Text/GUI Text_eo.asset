@@ -22,6 +22,115 @@ MonoBehaviour:
     m_Localized: "Ne\u011Do"
     m_Metadata:
       m_Items: []
+  - m_Id: 1140543175806976
+    m_Localized: Komenci ludon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140413345320960
+    m_Localized: "Ali\u011Di al ludo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140348727873536
+    m_Localized: Agordoj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 390954213376
+    m_Localized: Eliro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140723694456832
+    m_Localized: "\u0108u vi certas, ke vi volas eliri el la ludo?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140934231740416
+    m_Localized: Jes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1140979446337536
+    m_Localized: Ne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141208514056192
+    m_Localized: Ludo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141045972193280
+    m_Localized: Grafiko
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141114481954816
+    m_Localized: Sono
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1141374340059136
+    m_Localized: Komandoj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2979721484193792
+    m_Localized: Lingvo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2979776383438848
+    m_Localized: "Plenekrana re\u011Dimo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2979860206604288
+    m_Localized: Bilda distingokapablo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3645032491405312
+    m_Localized: Ofteco de aktualigo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2980190784868352
+    m_Localized: "\u0108efa la\u016Dteco"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11221146013290496
+    m_Localized: "Muzika la\u016Dteco"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11222081078841344
+    m_Localized: "Sona la\u016Dteco"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2980304635056128
+    m_Localized: Klavaro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2980477272608768
+    m_Localized: Agordi...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3682963339890688
+    m_Localized: "Konekti\u011Di"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5379812966813696
+    m_Localized: 'Kromnomo:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5379889676439552
+    m_Localized: "Via kromnomo \u0109i tie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380010703081472
+    m_Localized: 'Kodo:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380059218595840
+    m_Localized: "\u0108ambra kodo \u0109i tie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7968462292406272
+    m_Localized: Komenci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8462242258898944
+    m_Localized: "\u0108u vi certas, ke vi volas for\u0135eti \u0109iujn \u015Dan\u011Ditajn
+      agordojn?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

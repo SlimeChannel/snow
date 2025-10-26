@@ -17,7 +17,19 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 43bd476e453a62b6387b4a380d2441b8, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 89776476160
+    m_Localized: Fenestro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 450985742336
+    m_Localized: Plenekrane
+    m_Metadata:
+      m_Items: []
+  - m_Id: 594145726464
+    m_Localized: Senlima fenestro
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
